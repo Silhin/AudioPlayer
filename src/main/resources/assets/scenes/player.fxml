@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<VBox styleClass="scene"
+      minHeight="420.0" minWidth="400.0"
+      xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.silhin.player.controller.SoundPageController">
+
+    <AnchorPane prefHeight="420.0" prefWidth="400.0" VBox.vgrow="ALWAYS" >
+        <ImageView fx:id="soundImage" fitHeight="200" fitWidth="200" layoutX="90" layoutY="20" pickOnBounds="true">
+
+        </ImageView>
+
+        <Label fx:id="soundName" layoutX="90.0" layoutY="230.0" prefHeight="18.0" prefWidth="200" alignment="TOP_CENTER" styleClass="soundName" text="SOUND TEXT" textAlignment="RIGHT"/>
+
+        <Label styleClass="soundText" fx:id="soundTimeNow" layoutX="50.0"  layoutY="267.0" text="00:00"/>
+        <Slider fx:id="soundTime"   layoutX="90.0"  layoutY="270.0" prefHeight="15" prefWidth="200"/>
+        <Label styleClass="soundText" fx:id="soundTimeEnd" layoutX="290.0" layoutY="267.0" text="00:00"/>
+
+        <ImageView fx:id="repeatButton" onMouseClicked="#repeat" fitHeight="18" fitWidth="18" layoutX="260" layoutY="290">
+
+        </ImageView>
+
+
+        <Button                     onAction="#soundBack" prefHeight="20.0" prefWidth="50" layoutX="90.0"  layoutY="320.0" mnemonicParsing="false" text="◀◀"/>
+        <Button fx:id="pauseButton" onAction="#pause"     prefHeight="20.0" prefWidth="50" layoutX="175.0" layoutY="318.0" mnemonicParsing="false" text="||"   styleClass="pauseButton"/>
+        <Button                     onAction="#soundNext" prefHeight="20.0" prefWidth="50" layoutX="240"   layoutY="320.0" mnemonicParsing="false" text="▶▶"/>
+
+    </AnchorPane>
+</VBox>

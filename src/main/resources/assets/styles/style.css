@@ -1,0 +1,22 @@
+.scene {
+    -fx-background-color: rgb(45, 45, 50), rgb(60, 60, 65);
+}
+
+.soundText {
+    -fx-text-fill: white;
+}
+
+.soundName {
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+}
+
+.pauseButton {
+    -fx-font-weight: bold;
+    -fx-background-radius: 100%;
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-width: 30px;
+    -fx-max-height: 30px;
+}

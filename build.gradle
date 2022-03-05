@@ -1,0 +1,74 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'org.beryx.jlink' version '2.24.1'
+}
+
+group 'ru.silhin'
+description 'Silhin AudioPlayer\n Supported *.mp3, *.wav'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.8.2'
+}
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+application {
+    mainModule = 'ru.silhin.player'
+    mainClass = 'ru.silhin.player.Main'
+}
+
+javafx {
+    version = '11.0.1'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'ru.silhin.player.Launcher'
+    }
+}
+
+dependencies {
+    implementation group: 'org.openjfx', name: 'javafx-media', version: '11', classifier: javafx.platform.classifier
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jlink {
+    imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'Silhin Player'
+        mainClass = 'ru.silgin.player.Main'
+        noConsole = true;
+    }
+
+    jpackage {
+        args = ["--vendor Silhin"]
+        installerType = "exe"
+        icon = "player_icon.ico"
+        appVersion = '1.0'
+    }
+}
+
+jlinkZip {
+    group = 'distribution'
+}
