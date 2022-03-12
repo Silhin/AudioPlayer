@@ -12,6 +12,10 @@
     -fx-font-weight: bold;
 }
 
+button {
+    -fx-background-color: rgb(50, 50, 50);
+}
+
 .pauseButton {
     -fx-font-weight: bold;
     -fx-background-radius: 100%;

@@ -8,11 +8,13 @@
       minHeight="420.0" minWidth="400.0"
       xmlns="http://javafx.com/javafx/11.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="ru.silhin.player.controller.SoundPageController">
+      fx:controller="ru.silhin.player.controller.PlayerPageController">
 
     <AnchorPane prefHeight="420.0" prefWidth="400.0" VBox.vgrow="ALWAYS" >
         <ImageView fx:id="soundImage" fitHeight="200" fitWidth="200" layoutX="90" layoutY="20" pickOnBounds="true">
+        </ImageView>
 
+        <ImageView fx:id="playlistImage" onMouseClicked="#openPlaylist" fitHeight="45" fitWidth="45" layoutX="300" layoutY="10" pickOnBounds="true">
         </ImageView>
 
         <Label fx:id="soundName" layoutX="90.0" layoutY="230.0" prefHeight="18.0" prefWidth="200" alignment="TOP_CENTER" styleClass="soundName" text="SOUND TEXT" textAlignment="RIGHT"/>
@@ -26,7 +28,7 @@
         </ImageView>
 
 
-        <Button                     onAction="#soundBack" prefHeight="20.0" prefWidth="50" layoutX="90.0"  layoutY="320.0" mnemonicParsing="false" text="◀◀"/>
+        <Button onAction="#soundPrev" prefHeight="20.0" prefWidth="50" layoutX="90.0" layoutY="320.0" mnemonicParsing="false" text="◀◀"/>
         <Button fx:id="pauseButton" onAction="#pause"     prefHeight="20.0" prefWidth="50" layoutX="175.0" layoutY="318.0" mnemonicParsing="false" text="||"   styleClass="pauseButton"/>
         <Button                     onAction="#soundNext" prefHeight="20.0" prefWidth="50" layoutX="240"   layoutY="320.0" mnemonicParsing="false" text="▶▶"/>
 
